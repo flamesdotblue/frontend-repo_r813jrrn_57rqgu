@@ -1,19 +1,22 @@
 import { motion } from 'framer-motion';
 import { ArrowRight, Play } from 'lucide-react';
+import Spline from '@splinetool/react-spline';
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden">
-      {/* Background image */}
+    <section className="relative min-h-[80vh] overflow-hidden">
+      {/* Spline 3D scene */}
       <div className="absolute inset-0">
-        <img
-          src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?q=80&w=2070&auto=format&fit=crop"
-          alt="Scenic travel destination"
-          className="h-full w-full object-cover"
+        <Spline
+          scene="https://prod.spline.design/41MGRk-UDPKO-l6W/scene.splinecode"
+          style={{ width: '100%', height: '100%' }}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-white/0 pointer-events-none" />
+        {/* Gradient overlays should not block interaction */}
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-slate-900/70 via-slate-900/30 to-transparent" />
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-white via-white/70 to-transparent" />
       </div>
 
+      {/* Content */}
       <div className="relative mx-auto max-w-7xl px-6 pt-28 pb-20 sm:pt-36 sm:pb-28 lg:pt-40 lg:pb-36">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -34,7 +37,7 @@ export default function Hero() {
           <div className="mt-8 flex flex-wrap items-center gap-4">
             <a
               href="#join"
-              className="group inline-flex items-center justify-center rounded-full bg-teal-500 px-6 py-3 text-white shadow-lg shadow-teal-500/30 transition hover:scale-[1.02] hover:bg-teal-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
+              className="group inline-flex items-center justify-center rounded-full bg-gradient-to-tr from-teal-500 to-sky-500 px-6 py-3 text-white shadow-lg shadow-teal-500/30 transition hover:scale-[1.02] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
             >
               Become a Supplier
               <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-0.5" />
@@ -49,7 +52,7 @@ export default function Hero() {
           </div>
         </motion.div>
 
-        {/* Floating cards */}
+        {/* Floating stats card */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -61,8 +64,8 @@ export default function Hero() {
               <p className="font-semibold text-teal-800">+12k</p>
               <p>Bookings managed</p>
             </div>
-            <div className="rounded-lg bg-coral-50 p-3">
-              <p className="font-semibold text-coral-700">42%</p>
+            <div className="rounded-lg bg-rose-50 p-3">
+              <p className="font-semibold text-rose-700">42%</p>
               <p>Avg. visibility boost</p>
             </div>
             <div className="rounded-lg bg-sky-50 p-3">

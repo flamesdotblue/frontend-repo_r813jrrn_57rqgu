@@ -1,28 +1,30 @@
-import { useState } from 'react'
+import Hero from './components/Hero';
+import Benefits from './components/Benefits';
+import HowItWorks from './components/HowItWorks';
+import FooterSection from './components/FooterSection';
 
-function App() {
-  const [count, setCount] = useState(0)
-
+export default function App() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-blue-50 flex items-center justify-center">
-      <div className="bg-white p-8 rounded-lg shadow-lg">
-        <h1 className="text-3xl font-bold text-gray-800 mb-4">
-          Vibe Coding Platform
-        </h1>
-        <p className="text-gray-600 mb-6">
-          Your AI-powered development environment
-        </p>
-        <div className="text-center">
-          <button
-            onClick={() => setCount(count + 1)}
-            className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded"
-          >
-            Count is {count}
-          </button>
+    <div className="min-h-screen bg-white text-slate-800">
+      <header className="absolute left-0 right-0 top-0 z-10">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+          <a href="#" className="flex items-center gap-2">
+            <div className="flex h-9 w-9 items-center justify-center rounded-full bg-gradient-to-br from-teal-500 to-sky-500 text-white font-bold">Tz</div>
+            <span className="text-lg font-bold text-white drop-shadow">Tripezy</span>
+          </a>
+          <nav className="hidden items-center gap-6 text-sm text-white/90 sm:flex">
+            <a href="#how-it-works" className="hover:text-white">How it works</a>
+            <a href="#join" className="hover:text-white">Become a supplier</a>
+          </nav>
         </div>
-      </div>
-    </div>
-  )
-}
+      </header>
 
-export default App
+      <main>
+        <Hero />
+        <Benefits />
+        <HowItWorks />
+        <FooterSection />
+      </main>
+    </div>
+  );
+}
